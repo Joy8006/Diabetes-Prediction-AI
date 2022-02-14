@@ -44,34 +44,36 @@ test_accuracy = accuracy_score(X_test_accuracy, Y_test)
 
 print("Accuracy score of the testing data is {} %".format(test_accuracy*100))
 
-# # Making it user friendly and taking data from USER
-# prompt1 = "Pregnancies"
-# prompt2 = "Glucose"
-# prompt3 = "BloodPressure"
-# prompt4 = "SkinThickness"
-# prompt5 = "Insulin"
-# prompt6 = "BMI"
-# prompt7 = "DiabetesPedigreeFunction"
-# prompt8 = "Age"
-# d1 = float(input(prompt1))
-# d2 = float(input(prompt2))
-# d3 = float(input(prompt3))
-# d4 = float(input(prompt4))
-# d5 = float(input(prompt5))
-# d6 = float(input(prompt6))
-# d7 = float(input(prompt7))
-# d8 = float(input(prompt8))
+# Making it user friendly and taking data from USER
+prompt1 = "Pregnancies                     "
+prompt2 = "Glucose                         "
+prompt3 = "BloodPressure                   "
+prompt4 = "SkinThickness                   "
+prompt5 = "Insulin                         "
+prompt6 = "BMI                             "
+prompt7 = "DiabetesPedigreeFunction        "
+prompt8 = "Age                             "
+d1 = float(input(prompt1))
+d2 = float(input(prompt2))
+d3 = float(input(prompt3))
+d4 = float(input(prompt4))
+d5 = float(input(prompt5))
+d6 = float(input(prompt6))
+d7 = float(input(prompt7))
+d8 = float(input(prompt8))
 
-# input_data = (d1,d2,d3,d4,d5,d6,d7,d8)
+input_data = (d1,d2,d3,d4,d5,d6,d7,d8)
 
-# input_data_as_numpy_array = np.asarray(input_data)
+input_data_as_numpy_array = np.asarray(input_data)
 
-# input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
+input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
 
-# prediction = classifier.predict(input_data_reshaped)
+standard_data = StandardScaler().fit_transform(input_data_reshaped)
 
-# if prediction==0:
-#     print("You are not Diabetic")
+prediction = classifier.predict(standard_data)
 
-# elif prediction ==1:
-#     print("You are Diabetic")
+if prediction==0:
+    print("You are not Diabetic")
+
+elif prediction ==1:
+    print("You are Diabetic")
